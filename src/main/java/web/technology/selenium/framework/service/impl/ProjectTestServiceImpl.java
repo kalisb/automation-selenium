@@ -60,7 +60,7 @@ public class ProjectTestServiceImpl implements ProjectTestService {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        System.setProperty("phantomjs.binary.path", "/home/kalisb/Documents/FMI/report/automation-selenium/src/test/resources/selenium_standalone_binaries/linux/phantomjs/64bit/phantomjs");
+        System.setProperty("phantomjs.binary.path", "C:\\Program Files\\Git\\automation-selenium\\src\\test\\resources\\selenium_standalone_binaries\\windows\\phantomjs\\64bit\\phantomjs.exe");
         DriverBase.instantiateDriverObject();
         TestNGCucumberRunner runner = new TestNGCucumberRunner(BasicSteps.class);
         List<String> featurePaths = new ArrayList<>();
@@ -122,12 +122,16 @@ public class ProjectTestServiceImpl implements ProjectTestService {
 
     @Override
     public UFTFeature getFeature(int id) {
+    	String tempPath = "features" + System.nanoTime() + "/";
         UFTFeature feature = featureDao.findById(id);
-        File featureFile = new File("features/" + feature.getTitle().replaceAll(" ", "_") + ".feature");
+        File featureFile = new File(tempPath + feature.getTitle().replaceAll(" ", "_") + ".feature");
+        File featureImpl = new File(tempPath + feature.getTitle().replaceAll(" ", "_") + ".groovy");
         feature.setScenarios(new ArrayList<>());
         try {
             FileUtils.touch(featureFile);
+            FileUtils.touch(featureImpl);
             FileUtils.writeByteArrayToFile(featureFile, feature.getData());
+            FileUtils.writeByteArrayToFile(featureImpl, feature.getData());
             List<String> lines = FileUtils.readLines(featureFile, Charset.defaultCharset());
             for (String line : lines) {
                 if (line.contains("Scenario: ")) {

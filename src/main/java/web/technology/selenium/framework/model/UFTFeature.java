@@ -1,6 +1,9 @@
 package web.technology.selenium.framework.model;
 
 import javax.persistence.*;
+
+import org.hibernate.annotations.Type;
+
 import java.util.List;
 
 /**
@@ -24,9 +27,11 @@ public class UFTFeature {
     private String description;
 
     @Column(name ="featureContent")
+    @Type(type = "org.hibernate.type.MaterializedBlobType")
     private byte[] data;
 
     @Column(name = "featureImpl")
+    @Type(type = "org.hibernate.type.MaterializedBlobType")
     private byte[] dataImpl;
 
     @Transient

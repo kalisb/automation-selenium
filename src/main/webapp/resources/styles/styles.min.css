@@ -379,7 +379,6 @@ input.btn:focus {
 
 .alert,
 .alert span[aria-hidden=true] {
-    display: none
 }
 
 .alert,

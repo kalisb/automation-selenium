@@ -1,13 +1,17 @@
 package web.technology.selenium.framework.controller;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
+
 import web.technology.selenium.framework.model.Project;
 import web.technology.selenium.framework.model.UFTFeature;
 import web.technology.selenium.framework.service.api.ProjectService;
@@ -39,16 +43,18 @@ public class ProjectDashboardController {
     }
 
     @RequestMapping(value = "projects/new", method = RequestMethod.GET)
-    public String newProject() {
-        return "projects/new";
+    public ModelAndView newProject() {
+    	ModelAndView model = new ModelAndView();
+    	model.addObject("project", new Project());
+        return model;
     }
 
     @RequestMapping(value = "projects/new", method = RequestMethod.POST)
-    public RedirectView newProject(@ModelAttribute(value = "project") Project project) {
-        projectService.insert(project);
-        RedirectView model = new RedirectView("/");
-        model.addStaticAttribute("projects", projectService.listProjects());
-        return model;
+    public String newProject(@Valid Project project, BindingResult result) {
+    	if (result.hasErrors()) {
+            return "projects/new";
+    	}
+        return "projects";
     }
 
     @RequestMapping(value = "projects/edit/{id}", method = RequestMethod.GET)
