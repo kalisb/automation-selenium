@@ -35,8 +35,8 @@ public class FeatureDaoImpl implements FeatureDao {
     }
 
     @Override
-    public UFTFeature update(int id) {
-        return null;
+    public void update(UFTFeature feature) {
+        getSession().update(feature);
     }
 
     @Override

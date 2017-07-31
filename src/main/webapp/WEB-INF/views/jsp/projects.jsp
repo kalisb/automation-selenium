@@ -11,10 +11,7 @@
 </head>
 <body class="page-projects">
 	<div class="wrap">
-
-
 		<div class="main">
-
 			<section class="sidebar">
 				<a href="<c:url value="/" />"> <img
 					src="<c:url value="/resources/img/favicon.svg" />" alt="UFT"
@@ -23,6 +20,8 @@
 				<ul class="nav main-nav">
 					<li><a href="<c:url value="/projects/" />"
 						class="projects current">Projects</a></li>
+					<li><a href="<c:url value="/configs/" />"
+                    						class="projects current">Configuration</a></li>
 				</ul>
 			</section>
 			<section class="content">
@@ -33,12 +32,6 @@
 						<a href="<c:url value="/projects/new" />" id="new-project-main"
 							class="btn add-btn new-project">New Project</a>
 					</div>
-				</div>
-
-				<div id="projects-alert" class="alert" role="alert">
-					<a href="#" class="close">dismiss <span class="cross">x</span></a>
-					Quick tip: You can re-order projects by dragging and dropping them
-					into place.
 				</div>
 
 				<div id="projects" class="ui-sortable">
@@ -72,30 +65,6 @@
 							class="btn add-btn new-project">New Project</a>
 					</div>
 				</c:if>
-
-				<div id="rename-project-modal" class="modal">
-					<div class="modal-thumbnail"></div>
-					<h2>Rename Project</h2>
-					<p>Rename this project by entering a new title below. Any
-						changes will take effect immediately.</p>
-					<input type="text" id="project-name" />
-					<div class="modal-actions">
-						<a href="#" class="btn save">Save Changes</a> <a href="#"
-							class="cancel">Cancel</a>
-					</div>
-				</div>
-
-				<div id="delete-project-modal" class="modal">
-					<div class="modal-thumbnail"></div>
-					<h2>Delete Project</h2>
-					<p>Are you sure? Deleting a project cannot be undone. Your
-						project and all project content will be gone forever.</p>
-					<div class="modal-actions">
-						<a href="#" target="_blank" class="help">Need help with this?</a>
-						<a href="#" class="btn danger delete">Delete Project</a> <a
-							href="#" class="cancel">Cancel</a>
-					</div>
-				</div>
 			</section>
 			<!-- .content -->
 		</div>

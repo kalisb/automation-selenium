@@ -90,7 +90,7 @@
                                 </div>
                                 <div class="actions">
                                     <button class="btn clone save-project create-project">Add Step</button>
-                                    <button class="btn save-project create-project danger">Remove Step</button>
+                                    <button class="btn remove save-project create-project danger">Remove Step</button>
                                 </div>
                                 <br>
                             </div>
@@ -117,7 +117,7 @@
                                     </div>
                                     <div class="actions">
                                         <button class="btn clone save-project create-project">Add Step</button>
-                                        <button class="btn save-project create-project danger">Remove Step</button>
+                                        <button class="btn remove save-project create-project danger">Remove Step</button>
                                     </div>
                                     <br>
                                 </div>
@@ -168,22 +168,7 @@ $("button.submit").on("click", function(e) {
            data: $("#featureForm").serialize(), // serializes the form's elements.
            success: function(data)
            {
-               window.location = window.location.pathname.replace("features", "")
-           }
-     });
-
-});
-
-$("button.test").on("click", function(e) {
-
-    var url = window.location.pathname; // the script where you handle the form input.
-
-    $.ajax({
-           type: "GET",
-           url: "/test/" + '${feature.id}',
-           success: function(data)
-           {
-               window.location = window.location.pathname.replace("features", "")
+               window.location = window.location.pathname.replace(/features/g, "")
            }
      });
 

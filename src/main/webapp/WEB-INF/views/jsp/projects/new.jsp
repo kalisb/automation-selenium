@@ -25,9 +25,7 @@
 			</section>
 
 			<section class="content">
-				<form:form method="POST" action="#" accept-charset="UTF-8" commandName="project">
-					<input name="_token" type="hidden"
-						value="gnqU7ebXPF3qpDUSH5NePLBGigp96K89HZ3wZMec">
+				<form:form method="POST" accept-charset="UTF-8" commandName="project">
 
 					<div class="page-title edit-project-title">
 						<div class="pull-right">

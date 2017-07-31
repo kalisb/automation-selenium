@@ -35,8 +35,8 @@ public class ProjectDaoImpl implements ProjectDao {
     }
 
     @Override
-    public Project update(int id) {
-        return null;
+    public void update(Project project) {
+
     }
 
     @Override

@@ -256,9 +256,13 @@ input[type=checkbox] {
 }
 
 textarea {
-    height: 130px;
+    width: 799px;
+    height: 200px;
     line-height: 1.6;
-    padding: 9pt
+}
+
+.code {
+    height: 1000px;
 }
 
 .ui-autocomplete {
@@ -1444,7 +1448,6 @@ blockquote {
     max-width: 5pc;
     text-overflow: ellipsis;
     white-space: nowrap;
-    overflow: hidden;
     position: relative
 }
 

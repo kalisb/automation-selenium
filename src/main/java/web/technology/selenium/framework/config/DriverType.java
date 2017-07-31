@@ -12,10 +12,8 @@ import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.safari.SafariDriver;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
+import java.io.IOException;
+import java.util.*;
 
 import static org.openqa.selenium.remote.CapabilityType.PROXY;
 
@@ -107,6 +105,13 @@ public enum DriverType implements DriverSetup {
         }
 
         public WebDriver getWebDriverObject(DesiredCapabilities capabilities) {
+            Properties properties = new Properties();
+            try {
+                properties.load(Thread.currentThread().getContextClassLoader().getResourceAsStream("application-config.properties"));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            System.setProperty("phantomjs.binary.path", properties.getProperty("phantomjs.binary.path"));
             return new PhantomJSDriver(capabilities);
         }
     };

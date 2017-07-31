@@ -1,9 +1,11 @@
 package web.technology.selenium.framework.model;
 
-import javax.persistence.*;
-
 import org.hibernate.annotations.Type;
 
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+
+import java.nio.charset.Charset;
 import java.util.List;
 
 /**
@@ -20,6 +22,7 @@ public class UFTFeature {
     @Column(name ="projectId")
     private int projectId;
 
+    @NotNull
     @Column(name ="featureName")
     private String title;
 
@@ -30,9 +33,15 @@ public class UFTFeature {
     @Type(type = "org.hibernate.type.MaterializedBlobType")
     private byte[] data;
 
+    @Transient
+    private String dataStr;
+
     @Column(name = "featureImpl")
     @Type(type = "org.hibernate.type.MaterializedBlobType")
     private byte[] dataImpl;
+
+    @Transient
+    private String dataImplStr;
 
     @Transient
     private List<UFTScenario> scenarios;
@@ -94,7 +103,27 @@ public class UFTFeature {
         return dataImpl;
     }
 
+    public String readData(byte[] stream) {
+        return new String(stream, Charset.defaultCharset());
+    }
+
     public void setDataImpl(byte[] dataImpl) {
         this.dataImpl = dataImpl;
+    }
+
+    public String getDataImplStr() {
+        return dataImplStr;
+    }
+
+    public void setDataImplStr(String dataImplStr) {
+        this.dataImplStr = dataImplStr;
+    }
+
+    public void setDataStr(String dataStr) {
+        this.dataStr = dataStr;
+    }
+
+    public String getDataStr() {
+        return dataStr;
     }
 }

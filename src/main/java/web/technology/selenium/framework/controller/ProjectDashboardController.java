@@ -1,7 +1,5 @@
 package web.technology.selenium.framework.controller;
 
-import javax.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -11,11 +9,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
-
 import web.technology.selenium.framework.model.Project;
 import web.technology.selenium.framework.model.UFTFeature;
 import web.technology.selenium.framework.service.api.ProjectService;
 import web.technology.selenium.framework.service.api.ProjectTestService;
+
+import javax.validation.Valid;
+import java.io.IOException;
+import java.nio.charset.Charset;
 
 /**
  * Created by kalisb on 27.06.17.
@@ -36,10 +37,16 @@ public class ProjectDashboardController {
         return model;
     }
 
+    @RequestMapping(value = "configs", method = RequestMethod.GET)
+    public ModelAndView configure() throws IOException {
+        ModelAndView model = new ModelAndView("configs");
+        return model;
+    }
+
     @RequestMapping(value = "test/{id}", method = RequestMethod.GET)
-    public void test(@PathVariable(value = "id") int id) {
+    public String test(@PathVariable(value = "id") int id) throws IOException {
         UFTFeature feature = testService.getFeature(id);
-        testService.runTests(feature);
+        return ProjectTestService.runTests(feature);
     }
 
     @RequestMapping(value = "projects/new", method = RequestMethod.GET)
@@ -54,7 +61,8 @@ public class ProjectDashboardController {
     	if (result.hasErrors()) {
             return "projects/new";
     	}
-        return "projects";
+        projectService.insert(project);
+        return "redirect:/projects";
     }
 
     @RequestMapping(value = "projects/edit/{id}", method = RequestMethod.GET)
@@ -81,10 +89,18 @@ public class ProjectDashboardController {
         return model;
     }
 
+    @RequestMapping(value = "features/update", method = RequestMethod.POST)
+    public String saveProject(@ModelAttribute(value = "feature") UFTFeature feature) {
+        feature.setDataImpl(feature.getDataImplStr().getBytes(Charset.defaultCharset()));
+        feature.setData(feature.getDataStr().getBytes(Charset.defaultCharset()));
+        testService.updateFeature(feature);
+        return "redirect:/projects/edit/" + feature.getProjectId();
+    }
+
     @RequestMapping(value = "projects/edit/{id}/features/{featureId}", method = RequestMethod.GET)
     public ModelAndView editFeature(@PathVariable(value = "id") int id,
                                     @PathVariable(value = "featureId") int featureId) {
-        ModelAndView model = new ModelAndView("projects/features");
+        ModelAndView model = new ModelAndView("projects/update");
         model.addObject("project", projectService.findById(id));
         model.addObject("feature", testService.getFeature(featureId));
         return model;
