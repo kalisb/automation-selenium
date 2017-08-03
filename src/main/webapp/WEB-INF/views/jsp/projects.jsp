@@ -8,10 +8,12 @@
 	href="<c:url value="/resources/img/favicon.svg" />" sizes='any' />
 <link type="text/css" rel="stylesheet"
 	href="<c:url value="/resources/styles/styles.min.css" />" media="all" />
+<link rel="stylesheet" href="<c:url value="/resources/font-awesome-4.7.0/css/font-awesome.min.css" />">
 </head>
 <body class="page-projects">
-	<div class="wrap">
-		<div class="main">
+	<jsp:include page="../jsp/fragments/header.jsp"></jsp:include>
+	<div class="main">
+		<div class="wrap">
 			<section class="sidebar">
 				<a href="<c:url value="/" />"> <img
 					src="<c:url value="/resources/img/favicon.svg" />" alt="UFT"
@@ -21,7 +23,7 @@
 					<li><a href="<c:url value="/projects/" />"
 						class="projects current">Projects</a></li>
 					<li><a href="<c:url value="/configs/" />"
-                    						class="projects current">Configuration</a></li>
+                    						class="projects current">Configurations</a></li>
 				</ul>
 			</section>
 			<section class="content">
@@ -70,5 +72,6 @@
 		</div>
 		<!-- .main -->
 	</div>
+	<jsp:include page="../jsp/fragments/footer.jsp"></jsp:include>
 </body>
 </html>

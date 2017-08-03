@@ -6,10 +6,12 @@
     <title>Configurations | Ultimate Functional Testing</title>
     <link rel='icon' type='image/png' href="<c:url value="/resources/img/favicon.svg" />" sizes='any'/>
     <link type="text/css" rel="stylesheet" href="<c:url value="/resources/styles/styles.min.css" />" media="all" />
+    <link rel="stylesheet" href="<c:url value="/resources/font-awesome-4.7.0/css/font-awesome.min.css" />">
 </head>
 <body class="page-projects">
-    <div class="wrap">
-        <div class="main">
+	<jsp:include page="../jsp/fragments/header.jsp"></jsp:include>
+    <div class="main">
+    	<div class="wrap">
 			<section class="sidebar">
 				<a href="<c:url value="/" />"> <img
 					src="<c:url value="/resources/img/favicon.svg" />" alt="UFT"
@@ -19,36 +21,28 @@
 					<li><a href="<c:url value="/projects/" />"
 						class="projects current">Projects</a></li>
 					<li><a href="<c:url value="/configs/" />"
-                    						class="projects current">Configuration</a></li>
+                    						class="projects current">Configurations</a></li>
 				</ul>
 			</section>
 
 			<section class="content">
-            <div class="section-item title">
-               <h1>Select browser</h1>
-                <p>Binary file for selected OS will be download and used t run the tests.</p>
-             </div>
+				<div class="page-title">
+               		<h1>Configurations</h1>
+               		<p class="usage">Basic configurations before start testing.</p>
+            	 </div>
 			<div id="step0" class="clonedInput settings-section">
-                <b>Browser</b>
                 <div class="section-item step">
-                    <label for="os">OS:</label>
-                    <select name="os">
-                        <option ${step.type == "Given" ? "selected" : ''} value="Given">Windows</option>
-                        <option ${step.type == "And" ? "selected" : ''} value="And">Mac OS/X</option>
-                        <option ${step.type == "When" ? "selected" : ''} value="When">*nix</option>
-                     </select>
-                    <select name="broser">
-                        <option ${step.type == "Given" ? "selected" : ''} value="Given">Chrome</option>
-                        <option ${step.type == "And" ? "selected" : ''} value="And">Firefox/option>
-                        <option ${step.type == "When" ? "selected" : ''} value="When">PhantomJs</option>
+                	<label for="driver">WebDriver</label><span class="help">Select the WebDriver to be used to run the test. Stand alone server binaries will be downloaded according current platform.</span>
+                    <select name="driver">
+                        <option id="chrome" value="Chrome">Chrome</option>
+                        <option id="firefox" value="Firefox">Firefox</option>
+                        <option id="opera"  value="Opera">Opera</option>
+                        <option id="phantomjs" value="PhantomJs">PhantomJs</option>
                     </select>
-                    <div class="input-wrap">
-                        <input type="text" value="${step.title}" name="scenarios[0].steps[0].title" id="step">
-                    </div>
                 </div>
+                <pre id="driver-debug"></pre>
                 <div class="actions">
-                    <button class="btn clone save-project create-project">Add Step</button>
-                    <button class="btn remove save-project create-project danger">Remove Step</button>
+                    <button class="btn submit save-project create-project">Download binaries</button>
                 </div>
                 <br>
             </div>
@@ -56,5 +50,21 @@
 
 			</div><!-- .main -->
 		</div><!-- .wrap -->
+		<jsp:include page="../jsp/fragments/footer.jsp"></jsp:include>
     </body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+	    $("button.submit").on("click", function(e) {
+	    	console.log($('#driver-debug'));
+	    	$('#driver-debug').text(" \n--------------------------------------------------------\n DOWNLOADING SELENIUM STAND-ALONE EXECUTABLE BINARIES...\n--------------------------------------------------------\n  \n");
+	    	$.ajax({
+		           type: "GET",
+		           url: '/os',
+		           success: function(data)
+		           {
+		              console.log(data)
+		           }
+		     });
+	     });
+     </script>
 </html>

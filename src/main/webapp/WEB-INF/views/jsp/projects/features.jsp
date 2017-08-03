@@ -6,7 +6,6 @@
     <title>New Feature | Ultimate Functional Testing</title>
     <link rel='icon' type='image/png' href="<c:url value="/resources/img/favicon.svg" />" sizes='any'/>
     <link type="text/css" rel="stylesheet" href="<c:url value="/resources/styles/styles.min.css" />" media="all" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 <body class="page-projects-new">
     <div class="wrap">
@@ -129,6 +128,7 @@
 			</section><!-- .content -->
 		</div><!-- .main -->
 	</div><!-- .wrap -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script>
 var regex = /^(.+?)(\d+)$/i;
 var cloneIndex = $(".clonedInput").length;
