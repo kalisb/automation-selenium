@@ -6566,3 +6566,51 @@ pre, xmp, plaintext, listing {
     white-space: pre;
     margin: 1em 0px;
 }
+
+div.pane-header {
+    font-weight: bold;
+    padding-right: 24px;
+}
+
+#tasks .task {
+    margin-bottom: 4px;
+    font-size: 14px;
+    white-space: nowrap;
+}
+
+#buildHistoryPage {
+    position: relative;
+}
+
+#buildHistoryPageNav {
+    position: absolute;
+    right: -21px;
+    top: 41px;
+    border: 1px solid;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    visibility: hidden;
+}
+
+#side-panel .pane-frame:hover, #side-panel .pane-frame.mouseover {
+    border: solid 1px #cecece;
+}
+
+.pane td {
+    padding: 4px 4px 3px 4px;
+    vertical-align: middle;
+}
+
+.build-row-cell {
+    font-size: 12px;
+}
+
+.build-row .build-row-cell .pane {
+    padding: 0px 2px;
+    display: inline-block;
+    overflow: hidden;
+}
+
+.build-row-cell .pane.build-name {
+    font-weight: bold;
+}

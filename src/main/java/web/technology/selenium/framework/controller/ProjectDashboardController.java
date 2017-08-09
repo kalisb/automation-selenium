@@ -1,8 +1,9 @@
 package web.technology.selenium.framework.controller;
 
-import org.hsqldb.lib.HashMap;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.config.Task;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -10,7 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
-import org.w3c.dom.NodeList;
+
+import com.google.common.collect.Queues;
 
 import web.technology.selenium.framework.config.DownloadHandler;
 import web.technology.selenium.framework.config.DriverMap;
@@ -24,14 +26,12 @@ import web.technology.selenium.framework.service.api.ProjectService;
 import web.technology.selenium.framework.service.api.ProjectTestService;
 
 import javax.validation.Valid;
-import javax.xml.bind.JAXBException;
-import javax.xml.xpath.XPathExpressionException;
-
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.Charset;
-import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.Set;
 
 /**
@@ -39,6 +39,8 @@ import java.util.Set;
  */
 @Controller
 public class ProjectDashboardController {
+	
+	private Queue<Task> taskQueue = new LinkedList<>();
 
     @Autowired
     private ProjectService projectService;
@@ -59,6 +61,7 @@ public class ProjectDashboardController {
         return model;
     }
     
+    @Transactional
     @RequestMapping(value = "os", method = RequestMethod.GET)
     public String platform() {
     	Set<OperatingSystem> osTypeList =  OperatingSystem.getCurrentOperatingSystemAsAHashSet();
@@ -95,6 +98,7 @@ public class ProjectDashboardController {
         return "configs";
     }
 
+    @Transactional
 	@RequestMapping(value = "test/{id}", method = RequestMethod.GET)
     public String test(@PathVariable(value = "id") int id) throws IOException {
         UFTFeature feature = testService.getFeature(id);
@@ -132,6 +136,7 @@ public class ProjectDashboardController {
         return model;
     }
 
+    @Transactional
     @RequestMapping(value = "projects/edit/{id}/features", method = RequestMethod.POST)
     public RedirectView saveProject(@PathVariable(value = "id") int id, @ModelAttribute(value = "feature") UFTFeature feature) {
         feature.setProjectId(id);
@@ -141,6 +146,7 @@ public class ProjectDashboardController {
         return model;
     }
 
+    @Transactional
     @RequestMapping(value = "features/update", method = RequestMethod.POST)
     public String saveProject(@ModelAttribute(value = "feature") UFTFeature feature) {
         feature.setDataImpl(feature.getDataImplStr().getBytes(Charset.defaultCharset()));
