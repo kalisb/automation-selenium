@@ -1,7 +1,6 @@
 package web.technology.selenium.framework.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.scheduling.config.Task;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.BindingResult;
@@ -11,8 +10,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
-
-import com.google.common.collect.Queues;
 
 import web.technology.selenium.framework.config.DownloadHandler;
 import web.technology.selenium.framework.config.DriverMap;
@@ -24,14 +21,13 @@ import web.technology.selenium.framework.model.Project;
 import web.technology.selenium.framework.model.UFTFeature;
 import web.technology.selenium.framework.service.api.ProjectService;
 import web.technology.selenium.framework.service.api.ProjectTestService;
+import web.technology.selenium.framework.service.api.SchedulerService;
 
 import javax.validation.Valid;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.Charset;
-import java.util.LinkedList;
-import java.util.Queue;
 import java.util.Set;
 
 /**
@@ -39,14 +35,15 @@ import java.util.Set;
  */
 @Controller
 public class ProjectDashboardController {
-	
-	private Queue<Task> taskQueue = new LinkedList<>();
 
     @Autowired
     private ProjectService projectService;
 
     @Autowired
     private ProjectTestService testService;
+    
+	@Autowired
+	SchedulerService scheduler;
 
     @RequestMapping(value = {"/", "projects"}, method = RequestMethod.GET)
     public ModelAndView show() {
@@ -64,37 +61,6 @@ public class ProjectDashboardController {
     @Transactional
     @RequestMapping(value = "os", method = RequestMethod.GET)
     public String platform() {
-    	Set<OperatingSystem> osTypeList =  OperatingSystem.getCurrentOperatingSystemAsAHashSet();
-    	//Calculate system architecture
-    	boolean thirtyTwoBitBinaries = false;
-    	boolean sixtyFourBitBinaries = false;
-    	boolean armBinaries = false;
-    	
-    	if (SystemArchitecture.getCurrentSystemArcitecture().equals(SystemArchitecture.ARCHITECTURE_64_BIT)) {
-            sixtyFourBitBinaries = true;
-        } else if (SystemArchitecture.getCurrentSystemArcitecture().equals(SystemArchitecture.ARCHITECTURE_ARM)) {
-            armBinaries = true;
-        } else {
-            thirtyTwoBitBinaries = true;
-        }
-    	
-    	DriverMap driverRepository;
-    	InputStream xmlRepositoryMap = this.getClass().getResourceAsStream("/RepositoryMap.xml");
-    	XMLParser parser = new XMLParser(xmlRepositoryMap, osTypeList, null, thirtyTwoBitBinaries, sixtyFourBitBinaries);
-    	File binaries = new File("driver-binaries");
-		File compressed = new File("compressed_files");
-		binaries.mkdir();
-		compressed.mkdir();
-		try {
-		DownloadHandler standaloneExecutableDownloader = new DownloadHandler(
-                 binaries,
-                 compressed,
-                 FileRepository.buildDownloadableFileRepository(parser.getAllNodesInScope(), thirtyTwoBitBinaries, sixtyFourBitBinaries, armBinaries),
-                 true);
-         driverRepository = standaloneExecutableDownloader.ensureStandaloneExecutableFilesExist();
-		} catch (Exception e) {
-			return "error";
-		}
         return "configs";
     }
 
