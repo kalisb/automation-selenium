@@ -8,27 +8,22 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
-import web.technology.selenium.framework.config.DownloadHandler;
-import web.technology.selenium.framework.config.DriverMap;
-import web.technology.selenium.framework.config.FileRepository;
-import web.technology.selenium.framework.config.OperatingSystem;
-import web.technology.selenium.framework.config.SystemArchitecture;
-import web.technology.selenium.framework.config.XMLParser;
+import web.technology.selenium.framework.model.DriverTask;
 import web.technology.selenium.framework.model.Project;
+import web.technology.selenium.framework.model.Task;
 import web.technology.selenium.framework.model.UFTFeature;
 import web.technology.selenium.framework.service.api.ProjectService;
 import web.technology.selenium.framework.service.api.ProjectTestService;
 import web.technology.selenium.framework.service.api.SchedulerService;
 
 import javax.validation.Valid;
-import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
 import java.nio.charset.Charset;
-import java.util.Set;
+import java.util.Collection;
 
 /**
  * Created by kalisb on 27.06.17.
@@ -49,18 +44,27 @@ public class ProjectDashboardController {
     public ModelAndView show() {
         ModelAndView model = new ModelAndView("projects");
         model.addObject("projects", projectService.listProjects());
+        model.addObject("tasks", scheduler.getAllTasks());
         return model;
+    }
+    
+    @ResponseBody
+    @RequestMapping(value = "tasks", method = RequestMethod.GET, produces = "application/json")
+    public Collection<Task> tasks() {
+        return scheduler.getAllTasks();
     }
 
     @RequestMapping(value = "configs", method = RequestMethod.GET)
-    public ModelAndView configure() throws IOException {
+    public ModelAndView configure() {
         ModelAndView model = new ModelAndView("configs");
+        model.addObject("tasks", scheduler.getAllTasks());
         return model;
     }
     
     @Transactional
-    @RequestMapping(value = "os", method = RequestMethod.GET)
-    public String platform() {
+    @RequestMapping(value = "os/{browser}", method = RequestMethod.GET)
+    public String platform(@PathVariable(value = "browser") String browser) {
+    	scheduler.add(new DriverTask(browser));
         return "configs";
     }
 

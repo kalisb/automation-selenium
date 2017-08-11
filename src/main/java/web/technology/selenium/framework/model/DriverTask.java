@@ -3,9 +3,14 @@ package web.technology.selenium.framework.model;
 import java.io.File;
 import java.io.InputStream;
 import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.Properties;
 import java.util.Set;
 
+import web.technology.selenium.framework.DriverBase;
 import web.technology.selenium.framework.config.DownloadHandler;
+import web.technology.selenium.framework.config.DriverContext;
+import web.technology.selenium.framework.config.DriverDetails;
 import web.technology.selenium.framework.config.DriverMap;
 import web.technology.selenium.framework.config.FileRepository;
 import web.technology.selenium.framework.config.OperatingSystem;
@@ -19,7 +24,12 @@ public class DriverTask implements Task {
 	}
 
 	private Status status;
-
+	private String browser;
+	
+	public DriverTask(String browser) {
+		this.browser = browser;
+	}
+	
 	@Override
 	public String getStatus() {
 		return status.name();
@@ -66,8 +76,12 @@ public class DriverTask implements Task {
                  FileRepository.buildDownloadableFileRepository(parser.getAllNodesInScope(), thirtyTwoBitBinaries, sixtyFourBitBinaries, armBinaries),
                  true);
          driverRepository = standaloneExecutableDownloader.ensureStandaloneExecutableFilesExist();
-         // TO DO: Set appropriate system property according to selected browser. 
-         //System.setProperty(key, value);
+         Properties browserMapping = new Properties();
+         browserMapping.load(this.getClass().getResourceAsStream("/browser-mapping.properties"));
+         ArrayList<DriverContext> driverContextsForCurrentOperatingSystem = driverRepository.getDriverContextsForCurrentOperatingSystem();
+         DriverDetails driverDetails = driverRepository.getDetailsForLatestVersionOfDriverContext(driverContextsForCurrentOperatingSystem.get(0));
+         System.setProperty(browserMapping.getProperty(browser), driverDetails.extractedLocation);
+         System.setProperty("browser", browser);
          this.status = Status.OK;
 		} catch (Exception e) {
 			this.status = Status.ERROR;

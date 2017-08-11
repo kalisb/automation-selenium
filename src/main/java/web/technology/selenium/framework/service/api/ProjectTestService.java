@@ -53,7 +53,7 @@ public interface ProjectTestService {
         } catch (Exception e) {
 
         }
-        DriverBase.instantiateDriverObject();
+        //DriverBase.instantiateDriverObject();
         TestNGCucumberRunner runner = new TestNGCucumberRunner(BasicSteps.class);
         List<String> featurePaths = new ArrayList<>();
         featurePaths.add(new File(tempDir).getAbsolutePath());

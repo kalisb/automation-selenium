@@ -36,249 +36,34 @@
 							<div class="row pane-content">
 								<table class="pane stripped">
 									<tbody>
-										<tr class="build-row  single-line overflow-checked">
-											<td class="build-row-cell">
-												<div class="pane build-name" style="height: 19px;">
-													<div class="build-icon">
-														<a href="#" class="build-status-link"> <img
-															src="<c:url value="/resources/img/blue.png" />"
-															alt="Success > Console Output"
-															style="width: 16px; height: 16px;"
-															class="icon-blue icon-sm"
-															title="Success > Console Output"></a>
-													</div>
-												</div>
-												<div class="pane build-details" style="height: 19px;">
-													<a class="build-row" href="#"
-														class="tip model-link inside build-link">Task 1 </a>
-												</div>
-												<div class="pane build-details" style="height: 19px;">
-													<a class="build-row" href="#"
-														class="tip model-link inside build-link">Aug 9, 2017
-														12:45 PM</a>
-												</div>
-												<div class="left-bar"></div>
-											</td>
-										</tr>
-										<tr class="build-row  single-line overflow-checked">
-											<td class="build-row-cell">
-												<div class="pane build-name" style="height: 19px;">
-													<div class="build-icon">
-														<a href="#" class="build-status-link"> <img
-															src="<c:url value="/resources/img/blue.png" />"
-															alt="Success > Console Output"
-															style="width: 16px; height: 16px;"
-															class="icon-blue icon-sm"
-															title="Success > Console Output"></a>
-													</div>
-												</div>
-												<div class="pane build-details" style="height: 19px;">
-													<a class="build-row" href="#"
-														class="tip model-link inside build-link">Task 2 </a>
-												</div>
-												<div class="pane build-details" style="height: 19px;">
-													<a class="build-row" href="#"
-														class="tip model-link inside build-link">Aug 9, 2017
-														12:45 PM</a>
-												</div>
-												<div class="left-bar"></div>
-											</td>
-										</tr>
-										<tr class="build-row  single-line overflow-checked">
-											<td class="build-row-cell">
-												<div class="pane build-name" style="height: 19px;">
-													<div class="build-icon">
-														<a href="#" class="build-status-link"> <img
-															src="<c:url value="/resources/img/blue.png" />"
-															alt="Success > Console Output"
-															style="width: 16px; height: 16px;"
-															class="icon-blue icon-sm"
-															title="Success > Console Output"></a>
-													</div>
-												</div>
-												<div class="pane build-details" style="height: 19px;">
-													<a class="build-row" href="#"
-														class="tip model-link inside build-link">Task 3 </a>
-												</div>
-												<div class="pane build-details" style="height: 19px;">
-													<a class="build-row" href="#"
-														class="tip model-link inside build-link">Aug 9, 2017
-														12:45 PM</a>
-												</div>
-												<div class="left-bar"></div>
-											</td>
-										</tr>
-										<tr class="build-row  single-line overflow-checked">
-											<td class="build-row-cell">
-												<div class="pane build-name" style="height: 19px;">
-													<div class="build-icon">
-														<a href="#" class="build-status-link"> <img
-															src="<c:url value="/resources/img/red.png" />"
-															alt="Success > Console Output"
-															style="width: 16px; height: 16px;"
-															class="icon-blue icon-sm"
-															title="Success > Console Output"></a>
-													</div>
-												</div>
-												<div class="pane build-details" style="height: 19px;">
-													<a class="build-row" href="#"
-														class="tip model-link inside build-link">Task 4 </a>
-												</div>
-												<div class="pane build-details" style="height: 19px;">
-													<a class="build-row" href="#"
-														class="tip model-link inside build-link">Aug 9, 2017
-														12:45 PM</a>
-												</div>
-												<div class="left-bar"></div>
-											</td>
-										</tr>
-										<tr class="build-row  single-line overflow-checked">
-											<td class="build-row-cell">
-												<div class="pane build-name" style="height: 19px;">
-													<div class="build-icon">
-														<a href="#" class="build-status-link"> <img
-															src="<c:url value="/resources/img/red.png" />"
-															alt="Success > Console Output"
-															style="width: 16px; height: 16px;"
-															class="icon-blue icon-sm"
-															title="Success > Console Output"></a>
-													</div>
-												</div>
-												<div class="pane build-details" style="height: 19px;">
-													<a class="build-row" href="#"
-														class="tip model-link inside build-link">Task 5 </a>
-												</div>
-												<div class="pane build-details" style="height: 19px;">
-													<a class="build-row" href="#"
-														class="tip model-link inside build-link">Aug 9, 2017
-														12:45 PM</a>
-												</div>
-												<div class="left-bar"></div>
-											</td>
-										</tr>
-										<tr class="build-row  single-line overflow-checked">
-											<td class="build-row-cell">
-												<div class="pane build-name" style="height: 19px;">
-													<div class="build-icon">
-														<a href="#" class="build-status-link"> <img
-															src="<c:url value="/resources/img/red.png" />"
-															alt="Success > Console Output"
-															style="width: 16px; height: 16px;"
-															class="icon-blue icon-sm"
-															title="Success > Console Output"></a>
-													</div>
-												</div>
-												<div class="pane build-details" style="height: 19px;">
-													<a class="build-row" href="#"
-														class="tip model-link inside build-link">Task 6 </a>
-												</div>
-												<div class="pane build-details" style="height: 19px;">
-													<a class="build-row" href="#"
-														class="tip model-link inside build-link">Aug 9, 2017
-														12:45 PM</a>
-												</div>
-												<div class="left-bar"></div>
-											</td>
-										</tr>
-										<tr class="build-row  single-line overflow-checked">
-											<td class="build-row-cell">
-												<div class="pane build-name" style="height: 19px;">
-													<div class="build-icon">
-														<a href="#" class="build-status-link"> <img
-															src="<c:url value="/resources/img/red.png" />"
-															alt="Success > Console Output"
-															style="width: 16px; height: 16px;"
-															class="icon-blue icon-sm"
-															title="Success > Console Output"></a>
-													</div>
-												</div>
-												<div class="pane build-details" style="height: 19px;">
-													<a class="build-row" href="#"
-														class="tip model-link inside build-link">Task 7 </a>
-												</div>
-												<div class="pane build-details" style="height: 19px;">
-													<a class="build-row" href="#"
-														class="tip model-link inside build-link">Aug 9, 2017
-														12:45 PM</a>
-												</div>
-												<div class="left-bar"></div>
-											</td>
-										</tr>
-										
-										<tr class="build-row  single-line overflow-checked">
-											<td class="build-row-cell">
-												<div class="pane build-name" style="height: 19px;">
-													<div class="build-icon">
-														<a href="#" class="build-status-link"> <img
-															src="<c:url value="/resources/img/blue.png" />"
-															alt="Success > Console Output"
-															style="width: 16px; height: 16px;"
-															class="icon-blue icon-sm"
-															title="Success > Console Output"></a>
-													</div>
-												</div>
-												<div class="pane build-details" style="height: 19px;">
-													<a class="build-row" href="#"
-														class="tip model-link inside build-link">Task 8 </a>
-												</div>
-												<div class="pane build-details" style="height: 19px;">
-													<a class="build-row" href="#"
-														class="tip model-link inside build-link">Aug 9, 2017
-														12:45 PM</a>
-												</div>
-												<div class="left-bar"></div>
-											</td>
-										</tr>
-										
-										<tr class="build-row  single-line overflow-checked">
-											<td class="build-row-cell">
-												<div class="pane build-name" style="height: 19px;">
-													<div class="build-icon">
-														<a href="#" class="build-status-link"> <img
-															src="<c:url value="/resources/img/blue.png" />"
-															alt="Success > Console Output"
-															style="width: 16px; height: 16px;"
-															class="icon-blue icon-sm"
-															title="Success > Console Output"></a>
-													</div>
-												</div>
-												<div class="pane build-details" style="height: 19px;">
-													<a class="build-row" href="#"
-														class="tip model-link inside build-link">Task 9 </a>
-												</div>
-												<div class="pane build-details" style="height: 19px;">
-													<a class="build-row" href="#"
-														class="tip model-link inside build-link">Aug 9, 2017
-														12:45 PM</a>
-												</div>
-												<div class="left-bar"></div>
-											</td>
-										</tr>
-										
-										<tr class="build-row  single-line overflow-checked">
-											<td class="build-row-cell">
-												<div class="pane build-name" style="height: 19px;">
-													<div class="build-icon">
-														<a href="#" class="build-status-link"> <img
-															src="<c:url value="/resources/img/blue.png" />"
-															alt="Success > Console Output"
-															style="width: 16px; height: 16px;"
-															class="icon-blue icon-sm"
-															title="Success > Console Output"></a>
-													</div>
-												</div>
-												<div class="pane build-details" style="height: 19px;">
-													<a class="build-row" href="#"
-														class="tip model-link inside build-link">Task 10 </a>
-												</div>
-												<div class="pane build-details" style="height: 19px;">
-													<a class="build-row" href="#"
-														class="tip model-link inside build-link">Aug 9, 2017
-														12:45 PM</a>
-												</div>
-												<div class="left-bar"></div>
-											</td>
-										</tr>
+										<c:if test="${tasks.size() > 0}">
+											<c:forEach var="task" items="${tasks}">
+												<tr class="build-row  single-line overflow-checked">
+													<td class="build-row-cell">
+														<div class="pane build-name" style="height: 19px;">
+															<div class="build-icon">
+																<a href="#" class="build-status-link"> <img
+																	src="<c:url value="/resources/img/blue.png" />"
+																	alt="Success > Console Output"
+																	style="width: 16px; height: 16px;"
+																	class="icon-blue icon-sm"
+																	title="Success > Console Output"></a>
+															</div>
+														</div>
+														<div class="pane build-details" style="height: 19px;">
+															<a class="build-row" href="#"
+																class="tip model-link inside build-link">Task 1 </a>
+														</div>
+														<div class="pane build-details" style="height: 19px;">
+															<a class="build-row" href="#"
+																class="tip model-link inside build-link">Aug 9, 2017
+																12:45 PM</a>
+														</div>
+														<div class="left-bar"></div>
+													</td>
+												</tr>
+											</c:forEach>
+										</c:if>
 									</tbody>
 								</table>
 							</div>
@@ -333,5 +118,12 @@
 		<!-- .main -->
 	</div>
 	<jsp:include page="../jsp/fragments/footer.jsp"></jsp:include>
+	<script>
+		setInterval(function(){
+		    $.ajax({ url: "/tasks", success: function(data){
+		    	${tasks} = data.value;
+		    }, });
+		}, 50000);
+	</script>
 </body>
 </html>

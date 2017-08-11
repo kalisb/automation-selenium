@@ -1,17 +1,20 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset='utf-8'/>
-    <title>Configurations | Ultimate Functional Testing</title>
-    <link rel='icon' type='image/png' href="<c:url value="/resources/img/favicon.svg" />" sizes='any'/>
-    <link type="text/css" rel="stylesheet" href="<c:url value="/resources/styles/styles.min.css" />" media="all" />
-    <link rel="stylesheet" href="<c:url value="/resources/font-awesome-4.7.0/css/font-awesome.min.css" />">
+<meta charset='utf-8' />
+<title>Configurations | Ultimate Functional Testing</title>
+<link rel='icon' type='image/png'
+	href="<c:url value="/resources/img/favicon.svg" />" sizes='any' />
+<link type="text/css" rel="stylesheet"
+	href="<c:url value="/resources/styles/styles.min.css" />" media="all" />
+<link rel="stylesheet"
+	href="<c:url value="/resources/font-awesome-4.7.0/css/font-awesome.min.css" />">
 </head>
 <body class="page-projects">
 	<jsp:include page="../jsp/fragments/header.jsp"></jsp:include>
-    <div class="main">
-    	<div class="wrap">
+	<div class="main">
+		<div class="wrap">
 			<section class="sidebar">
 				<a href="<c:url value="/" />"> <img
 					src="<c:url value="/resources/img/favicon.svg" />" alt="UFT"
@@ -21,45 +24,95 @@
 					<li><a href="<c:url value="/projects/" />"
 						class="projects current">Projects</a></li>
 					<li><a href="<c:url value="/configs/" />"
-                    						class="projects current">Configurations</a></li>
+						class="projects current">Configurations</a></li>
+					<li><br></li>
+					<li><br></li>
+					<li>
+						<div id="buildHistory"
+							class="container-fluid pane-frame track-mouse expanded mouseover">
+							<div class="row">
+								<div class="col-xs-24 pane-header">Tasks History</div>
+							</div>
+							<div class="row pane-content">
+								<table class="pane stripped">
+									<tbody>
+										<c:if test="${tasks.size() > 0}">
+											<c:forEach var="task" items="${tasks}">
+												<tr class="build-row  single-line overflow-checked">
+													<td class="build-row-cell">
+														<div class="pane build-name" style="height: 19px;">
+															<div class="build-icon">
+																<a href="#" class="build-status-link"> <img
+																	src="<c:url value="/resources/img/blue.png" />"
+																	alt="Success > Console Output"
+																	style="width: 16px; height: 16px;"
+																	class="icon-blue icon-sm"
+																	title="Success > Console Output"></a>
+															</div>
+														</div>
+														<div class="pane build-details" style="height: 19px;">
+															<a class="build-row" href="#"
+																class="tip model-link inside build-link">Task 1 </a>
+														</div>
+														<div class="pane build-details" style="height: 19px;">
+															<a class="build-row" href="#"
+																class="tip model-link inside build-link">Aug 9, 2017
+																12:45 PM</a>
+														</div>
+														<div class="left-bar"></div>
+													</td>
+												</tr>
+											</c:forEach>
+										</c:if>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</li>
 				</ul>
 			</section>
 
 			<section class="content">
 				<div class="page-title">
-               		<h1>Configurations</h1>
-               		<p class="usage">Basic configurations before start testing.</p>
-            	 </div>
-			<div id="step0" class="clonedInput settings-section">
-                <div class="section-item step">
-                	<label for="driver">WebDriver</label><span class="help">Select the WebDriver to be used to run the test. Stand alone server binaries will be downloaded according current platform.</span>
-                    <select name="driver">
-                        <option id="chrome" value="Chrome">Chrome</option>
-                        <option id="firefox" value="Firefox">Firefox</option>
-                        <option id="opera"  value="Opera">Opera</option>
-                        <option id="phantomjs" value="PhantomJs">PhantomJs</option>
-                    </select>
-                </div>
-                <pre id="driver-debug"></pre>
-                <div class="actions">
-                    <button class="btn submit save-project create-project">Download binaries</button>
-                </div>
-                <br>
-            </div>
-            </section><!-- .content -->
+					<h1>Configurations</h1>
+					<p class="usage">Basic configurations before start testing.</p>
+				</div>
+				<div id="step0" class="clonedInput settings-section">
+					<div class="section-item step">
+						<label for="driver">WebDriver</label><span class="help">Select
+							the WebDriver to be used to run the test. Stand alone server
+							binaries will be downloaded according current platform.</span> <select
+							id="driver">
+							<option id="chrome" value="chrome">Chrome</option>
+							<option id="firefox" value="firefox">Firefox</option>
+							<option id="opera" value="opera">Opera</option>
+							<option id="phantomjs" value="phantomjs">PhantomJs</option>
+						</select>
+					</div>
+					<pre id="driver-debug"></pre>
+					<div class="actions">
+						<button class="btn submit save-project create-project">Download
+							binaries</button>
+					</div>
+					<br>
+				</div>
+			</section>
+			<!-- .content -->
 
-			</div><!-- .main -->
-		</div><!-- .wrap -->
-		<jsp:include page="../jsp/fragments/footer.jsp"></jsp:include>
-    </body>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script>
+		</div>
+		<!-- .main -->
+	</div>
+	<!-- .wrap -->
+	<jsp:include page="../jsp/fragments/footer.jsp"></jsp:include>
+</body>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
 	    $("button.submit").on("click", function(e) {
-	    	console.log($('#driver-debug'));
 	    	$('#driver-debug').text(" \n--------------------------------------------------------\n DOWNLOADING SELENIUM STAND-ALONE EXECUTABLE BINARIES...\n--------------------------------------------------------\n  \n");
 	    	$.ajax({
 		           type: "GET",
-		           url: '/os',
+		           url: '/os/' + $("#driver").val(),
 		           success: function(data)
 		           {
 		              console.log(data)
@@ -67,4 +120,11 @@
 		     });
 	     });
      </script>
+<script>
+		setInterval(function(){
+		    $.ajax({ url: "/tasks", success: function(data){
+		    	${tasks} = data.value;
+		    }, });
+		}, 50000);
+	</script>
 </html>
