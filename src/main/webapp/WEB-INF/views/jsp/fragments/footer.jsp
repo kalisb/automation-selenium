@@ -1,7 +1,7 @@
 <footer>
 	<div class="wrap">
 		<div class="content">
-	        <div class="copyrights" style="margin-top:25px;">
+	        <div class="copyrights">
 	            <p>Web Technology 2017
 	                <br>
 	                <span>Created By: Kalina Buhleva</span></p>

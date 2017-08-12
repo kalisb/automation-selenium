@@ -12,9 +12,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
-import web.technology.selenium.framework.model.DriverTask;
+import web.technology.selenium.framework.model.task.DriverTask;
 import web.technology.selenium.framework.model.Project;
-import web.technology.selenium.framework.model.Task;
+import web.technology.selenium.framework.model.task.Task;
 import web.technology.selenium.framework.model.UFTFeature;
 import web.technology.selenium.framework.service.api.ProjectService;
 import web.technology.selenium.framework.service.api.ProjectTestService;

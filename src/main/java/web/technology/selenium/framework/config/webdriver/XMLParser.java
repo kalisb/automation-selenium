@@ -1,18 +1,13 @@
-package web.technology.selenium.framework.config;
+package web.technology.selenium.framework.config.webdriver;
 
+import org.w3c.dom.NodeList;
+import org.xml.sax.InputSource;
+
+import javax.xml.xpath.*;
 import java.io.InputStream;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
-
-import javax.xml.xpath.XPath;
-import javax.xml.xpath.XPathConstants;
-import javax.xml.xpath.XPathExpression;
-import javax.xml.xpath.XPathExpressionException;
-import javax.xml.xpath.XPathFactory;
-
-import org.w3c.dom.NodeList;
-import org.xml.sax.InputSource;
 
 public class XMLParser {
 	

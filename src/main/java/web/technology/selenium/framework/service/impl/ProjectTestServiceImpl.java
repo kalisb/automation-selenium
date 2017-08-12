@@ -37,7 +37,7 @@ public class ProjectTestServiceImpl implements ProjectTestService {
 
     @Override
     public void saveFeature(UFTFeature feature) {
-        String tempPath = "features" + System.nanoTime() + "/";
+        String tempPath = System.getProperty("java.io.tmpdir") + "/features" + System.nanoTime() + "/";
         File featureFile = new File(tempPath + feature.getTitle().replace(" ", "_") + ".feature");
         File featureClass = new File(tempPath + feature.getTitle().replace(" ", "_") + ".groovy");
         try {
@@ -80,7 +80,7 @@ public class ProjectTestServiceImpl implements ProjectTestService {
 
     @Override
     public UFTFeature getFeature(int id) {
-    	String tempPath = "features" + System.nanoTime() + "/";
+    	String tempPath = System.getProperty("java.io.tmpdir") + "/features" + System.nanoTime() + "/";
         UFTFeature feature = featureDao.findById(id);
         File featureFile = new File(tempPath + feature.getTitle().replaceAll(" ", "_") + ".feature");
         File featureImpl = new File(tempPath + feature.getTitle().replaceAll(" ", "_") + ".groovy");

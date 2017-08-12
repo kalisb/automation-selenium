@@ -1,13 +1,12 @@
 package web.technology.selenium.framework.service.impl;
 
+import org.springframework.stereotype.Service;
+import web.technology.selenium.framework.model.task.Task;
+import web.technology.selenium.framework.service.api.SchedulerService;
+
 import java.util.Collection;
 import java.util.LinkedList;
 import java.util.Queue;
-
-import org.springframework.stereotype.Service;
-
-import web.technology.selenium.framework.model.Task;
-import web.technology.selenium.framework.service.api.SchedulerService;
 
 @Service
 public class SchedulerServiceImpl implements SchedulerService {

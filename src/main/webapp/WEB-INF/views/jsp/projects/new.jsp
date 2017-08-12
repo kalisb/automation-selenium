@@ -64,5 +64,6 @@
 		<!-- .main -->
 	</div>
 	<!-- .wrap -->
+	<jsp:include page="../../jsp/fragments/footer.jsp"></jsp:include>
 </body>
 </html>

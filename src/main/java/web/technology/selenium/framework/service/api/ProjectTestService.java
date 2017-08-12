@@ -25,7 +25,7 @@ import java.util.List;
  */
 public interface ProjectTestService {
     public  static String runTests(UFTFeature feature) throws IOException {
-        String tempDir = "features" + System.nanoTime() + "/";
+        String tempDir = System.getProperty("java.io.tmpdir") + "/features" + System.nanoTime() + "/";
         try {
             File testFile = new File(tempDir + feature.getTitle().replace(" ", "_") + ".groovy");
             File featureFile = new File(tempDir + feature.getTitle().replace(" ", "_") + ".feature");

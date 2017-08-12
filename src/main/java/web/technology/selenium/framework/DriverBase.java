@@ -5,7 +5,9 @@ import cucumber.api.testng.AbstractTestNGCucumberTests;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
-import web.technology.selenium.framework.config.DriverFactory;
+import web.technology.selenium.framework.config.test.DriverFactory;
+
+import java.util.logging.Logger;
 
 /**
  * Created by kalisb on 21.05.17.
@@ -15,9 +17,11 @@ import web.technology.selenium.framework.config.DriverFactory;
 		)
 public class DriverBase extends AbstractTestNGCucumberTests {
 	private static DriverFactory driverFactory;
+	private static Logger LOG = Logger.getLogger(DriverBase.class.getName());
 
 	public static WebDriver getDriver() {
 		driverFactory = new DriverFactory();
+		LOG.warning("Get driver!");
 		return driverFactory.getDriver();
 	}
 

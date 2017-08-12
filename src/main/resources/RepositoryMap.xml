@@ -24,7 +24,7 @@
 				</bitrate>
 			</version>
 		</driver>
-		<driver id="googlechrome">
+		<driver id="chrome">
 			<version id="2.29">
 				<bitrate thirtytwobit="true" sixtyfourbit="true">
 					<filelocation>https://chromedriver.storage.googleapis.com/2.29/chromedriver_win32.zip</filelocation>
@@ -33,7 +33,7 @@
 				</bitrate>
 			</version>
 		</driver>
-		<driver id="operachromium">
+		<driver id="opera">
 			<version id="0.2.2">
 				<bitrate sixtyfourbit="true">
 					<filelocation>https://github.com/operasoftware/operachromiumdriver/releases/download/v0.2.2/operadriver_win64.zip</filelocation>
@@ -63,7 +63,7 @@
 				</bitrate>
 			</version>
 		</driver>
-		<driver id="marionette">
+		<driver id="firefox">
 			<version id="0.16.1">
 				<bitrate sixtyfourbit="true">
 					<filelocation>https://github.com/mozilla/geckodriver/releases/download/v0.16.1/geckodriver-v0.16.1-win64.zip</filelocation>
@@ -79,7 +79,7 @@
 		</driver>
 	</windows>
 	<linux>
-		<driver id="googlechrome">
+		<driver id="chrome">
 			<version id="2.29">
 				<bitrate sixtyfourbit="true">
 					<filelocation>https://chromedriver.storage.googleapis.com/2.29/chromedriver_linux64.zip</filelocation>
@@ -93,7 +93,7 @@
 				</bitrate>
 			</version>
 		</driver>
-		<driver id="operachromium">
+		<driver id="opera">
 			<version id="0.2.2">
 				<bitrate thirtytwobit="true">
 					<filelocation>https://github.com/operasoftware/operachromiumdriver/releases/download/v0.2.2/operadriver_linux32.zip</filelocation>
@@ -133,7 +133,7 @@
 				</bitrate>
 			</version>
 		</driver>
-		<driver id="marionette">
+		<driver id="firefox">
 			<version id="0.16.1">
 				<bitrate sixtyfourbit="true">
 					<filelocation>https://github.com/mozilla/geckodriver/releases/download/v0.16.1/geckodriver-v0.16.1-linux64.tar.gz</filelocation>
@@ -149,7 +149,7 @@
 		</driver>
 	</linux>
 	<osx>
-		<driver id="googlechrome">
+		<driver id="chrome">
 			<version id="2.29">
 				<bitrate sixtyfourbit="true">
 					<filelocation>https://chromedriver.storage.googleapis.com/2.29/chromedriver_mac64.zip</filelocation>
@@ -158,7 +158,7 @@
 				</bitrate>
 			</version>
 		</driver>
-		<driver id="operachromium">
+		<driver id="opera">
 			<version id="0.2.2">
 				<bitrate sixtyfourbit="true">
 					<filelocation>https://github.com/operasoftware/operachromiumdriver/releases/download/v0.2.2/operadriver_mac64.zip</filelocation>
@@ -183,7 +183,7 @@
 				</bitrate>
 			</version>
 		</driver>
-		<driver id="marionette">
+		<driver id="firefox">
 			<version id="0.15.0">
 				<bitrate thirtytwobit="true" sixtyfourbit="true">
 					<filelocation>https://github.com/mozilla/geckodriver/releases/download/v0.16.1/geckodriver-v0.16.1-macos.tar.gz</filelocation>

@@ -1,6 +1,6 @@
-package web.technology.selenium.framework.model;
+package web.technology.selenium.framework.model.task;
 
-public class DefaultTask implements Task {
+public abstract class DefaultTask implements Task {
 	
 	private enum Status {
 		CORRECT, ERROR
@@ -23,12 +23,7 @@ public class DefaultTask implements Task {
 	public void setFinished(boolean finished) {
 		this.finished = finished;
 	}
-	
-	@Override
-	public boolean finished() {
-		return finished;
-	}
-	
+
 	public void setName(String name) {
 		this.name = name;
 	}

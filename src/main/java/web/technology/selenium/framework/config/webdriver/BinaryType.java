@@ -1,14 +1,9 @@
-package web.technology.selenium.framework.config;
+package web.technology.selenium.framework.config.webdriver;
 
 import java.util.ArrayList;
 
 public enum BinaryType {
-    INTERNETEXPLORER(
-            new ArrayList<String>() {{
-                add("IEDriverServer.exe");
-            }},
-            "webdriver.ie.driver"),
-    GOOGLECHROME(
+    CHROME(
             new ArrayList<String>() {{
                 add("chromedriver.exe");
                 add("chromedriver");
@@ -20,25 +15,20 @@ public enum BinaryType {
                 add("phantomjs");
             }},
             "phantomjs.binary.path"),
-    OPERACHROMIUM(
+    OPERA(
             new ArrayList<String>() {{
                 add("operadriver.exe");
                 add("operadriver");
             }},
             "webdriver.opera.driver"),
-    MARIONETTE(
+    FIREFOX(
             new ArrayList<String>() {{
                 add("wires");
                 add("wires.exe");
                 add("geckodriver");
                 add("geckodriver.exe");
             }},
-            "webdriver.gecko.driver"),
-    EDGE(
-            new ArrayList<String>() {{
-                add("MicrosoftWebDriver.exe");
-            }},
-            "webdriver.edge.driver");
+            "webdriver.gecko.driver");
 
     private final ArrayList<String> binaryFilenames;
     private final String driverSystemProperty;

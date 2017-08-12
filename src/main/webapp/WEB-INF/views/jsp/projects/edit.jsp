@@ -6,8 +6,11 @@
     <title>${project.title} | Ultimate Functional Testing</title>
     <link rel='icon' type='image/png' href="<c:url value="/resources/img/favicon.svg" />" sizes='any'/>
     <link type="text/css" rel="stylesheet" href="<c:url value="/resources/styles/styles.min.css" />" media="all" />
+    <link rel="stylesheet"
+        	href="<c:url value="/resources/font-awesome-4.7.0/css/font-awesome.min.css" />">
 </head>
 <body class="page-projects">
+	<jsp:include page="../../jsp/fragments/header.jsp"></jsp:include>
     <div class="wrap">
         <div class="main">
             <section class="sidebar">
@@ -59,5 +62,6 @@
 
 			</div><!-- .main -->
 		</div><!-- .wrap -->
+		<jsp:include page="../../jsp/fragments/footer.jsp"></jsp:include>
     </body>
 </html>

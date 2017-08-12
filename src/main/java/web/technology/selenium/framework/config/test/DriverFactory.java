@@ -1,4 +1,4 @@
-package web.technology.selenium.framework.config;
+package web.technology.selenium.framework.config.test;
 
 import org.openqa.selenium.Platform;
 import org.openqa.selenium.Proxy;
@@ -8,11 +8,14 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.logging.Logger;
 
 /**
  * Created by kalisb on 21.05.17.
  */
 public class DriverFactory {
+
+    private static Logger LOG = Logger.getLogger(DriverFactory.class.getName());
 
     private WebDriver webdriver;
     private DriverType selectedDriverType;
@@ -28,7 +31,7 @@ public class DriverFactory {
     private final String proxyDetails = String.format("%s:%d", proxyHostname, proxyPort);
 
     public WebDriver getDriver() {
-        if (null == webdriver) {
+        //if (null == webdriver) {
             Proxy proxy = null;
             if (proxyEnabled) {
                 proxy = new Proxy();
@@ -43,7 +46,7 @@ public class DriverFactory {
             } catch (Exception e) {
 
             }
-        }
+        //}
 
         return webdriver;
     }
@@ -57,11 +60,12 @@ public class DriverFactory {
     private void determineEffectiveDriverType() {
         DriverType driverType = defaultDriverType;
         try {
+            LOG.warning("Looking for " + browser);
             driverType = DriverType.valueOf(browser);
         } catch (IllegalArgumentException ignored) {
-            System.err.println("Unknown driver specified, defaulting to '" + driverType + "'...");
+            LOG.severe("Unknown driver specified, defaulting to '" + driverType + "'...");
         } catch (NullPointerException ignored) {
-            System.err.println("No driver specified, defaulting to '" + driverType + "'...");
+            LOG.severe("No driver specified, defaulting to '" + driverType + "'...");
         }
         selectedDriverType = driverType;
     }

@@ -1,4 +1,4 @@
-package web.technology.selenium.framework.config;
+package web.technology.selenium.framework.config.webdriver;
 
 public enum HashType {
     MD5("[a-fA-F0-9]{32}"),

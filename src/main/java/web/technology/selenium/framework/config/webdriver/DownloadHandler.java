@@ -1,9 +1,9 @@
-package web.technology.selenium.framework.config;
+package web.technology.selenium.framework.config.webdriver;
+
+import org.apache.commons.io.FilenameUtils;
 
 import java.io.File;
 import java.net.URL;
-
-import org.apache.commons.io.FilenameUtils;
 
 public class DownloadHandler {
 

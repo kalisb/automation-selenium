@@ -1,4 +1,4 @@
-package web.technology.selenium.framework.config;
+package web.technology.selenium.framework.config.test;
 
 import org.openqa.selenium.Proxy;
 import org.openqa.selenium.WebDriver;

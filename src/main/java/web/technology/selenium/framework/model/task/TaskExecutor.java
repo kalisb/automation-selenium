@@ -1,13 +1,12 @@
-package web.technology.selenium.framework.model;
-
-import java.util.Collection;
-import java.util.logging.Logger;
+package web.technology.selenium.framework.model.task;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
-
 import web.technology.selenium.framework.service.api.SchedulerService;
+
+import java.util.Collection;
+import java.util.logging.Logger;
 
 @Component
 public class TaskExecutor {
@@ -23,7 +22,7 @@ public class TaskExecutor {
 		if (scheduler.hasTasks()) {
 			Collection<Task> tasks = scheduler.getAllTasks();
 			for (Task task : tasks) {
-				logger.info("[Task-Scheduler] Starting task: " + task.getName());
+				logger.warning("[Task-Scheduler] Starting task: " + task.getName());
 				task.run();
 			}
 		} else {

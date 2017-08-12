@@ -1,4 +1,4 @@
-package web.technology.selenium.framework.model;
+package web.technology.selenium.framework.model.task;
 
 public interface Task {
 		

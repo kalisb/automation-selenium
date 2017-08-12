@@ -1,4 +1,4 @@
-package web.technology.selenium.framework.config;
+package web.technology.selenium.framework.config.webdriver;
 
 import java.util.HashSet;
 

@@ -1,15 +1,10 @@
-package web.technology.selenium.framework.config;
-
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStream;
+package web.technology.selenium.framework.config.webdriver;
 
 import org.apache.commons.compress.compressors.bzip2.BZip2CompressorInputStream;
 import org.apache.commons.compress.compressors.gzip.GzipCompressorInputStream;
-
 import org.apache.commons.io.FilenameUtils;
+
+import java.io.*;
 
 public class CompressedFile {
 
