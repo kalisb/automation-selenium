@@ -19,15 +19,18 @@ public class SchedulerServiceImpl implements SchedulerService {
 	}
 
 	@Override
+	public void remove(Task task) {
+		taskQueue.remove(task);
+	}
+
+	@Override
 	public boolean hasTasks() {
 		return !taskQueue.isEmpty();
 	}
 
 	@Override
 	public Collection<Task> getAllTasks() {
-		Queue<Task> cloneQueue = new LinkedList<>(taskQueue);
-		taskQueue.clear();
-		return cloneQueue;
+		return new LinkedList<>(taskQueue);
 	}
 
 }

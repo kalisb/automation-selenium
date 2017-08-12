@@ -28,46 +28,7 @@
 					<li><br></li>
 					<li><br></li>
 					<li>
-						<div id="buildHistory"
-							class="container-fluid pane-frame track-mouse expanded mouseover">
-							<div class="row">
-								<div class="col-xs-24 pane-header">Tasks History</div>
-							</div>
-							<div class="row pane-content">
-								<table class="pane stripped">
-									<tbody>
-										<c:if test="${tasks.size() > 0}">
-											<c:forEach var="task" items="${tasks}">
-												<tr class="build-row  single-line overflow-checked">
-													<td class="build-row-cell">
-														<div class="pane build-name" style="height: 19px;">
-															<div class="build-icon">
-																<a href="#" class="build-status-link"> <img
-																	src="<c:url value="/resources/img/blue.png" />"
-																	alt="Success > Console Output"
-																	style="width: 16px; height: 16px;"
-																	class="icon-blue icon-sm"
-																	title="Success > Console Output"></a>
-															</div>
-														</div>
-														<div class="pane build-details" style="height: 19px;">
-															<a class="build-row" href="#"
-																class="tip model-link inside build-link">Task 1 </a>
-														</div>
-														<div class="pane build-details" style="height: 19px;">
-															<a class="build-row" href="#"
-																class="tip model-link inside build-link">Aug 9, 2017
-																12:45 PM</a>
-														</div>
-														<div class="left-bar"></div>
-													</td>
-												</tr>
-											</c:forEach>
-										</c:if>
-									</tbody>
-								</table>
-							</div>
-						</div>
+						<jsp:include page="../jsp/fragments/tasks.jsp"></jsp:include>
 					</li>
 				</ul>
 			</section>
@@ -118,12 +79,5 @@
 		<!-- .main -->
 	</div>
 	<jsp:include page="../jsp/fragments/footer.jsp"></jsp:include>
-	<script>
-		setInterval(function(){
-		    $.ajax({ url: "/tasks", success: function(data){
-		    	${tasks} = data.value;
-		    }, });
-		}, 50000);
-	</script>
 </body>
 </html>

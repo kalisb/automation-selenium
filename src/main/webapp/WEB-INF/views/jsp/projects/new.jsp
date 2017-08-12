@@ -21,6 +21,11 @@
 				<ul class="nav main-nav">
 					<li><a href="<c:url value="/projects/" />"
 						class="projects current">Projects</a></li>
+					<li><br></li>
+                    <li><br></li>
+                    <li>
+                        <jsp:include page="../../jsp/fragments/tasks.jsp"></jsp:include>
+                    </li>
 				</ul>
 			</section>
 

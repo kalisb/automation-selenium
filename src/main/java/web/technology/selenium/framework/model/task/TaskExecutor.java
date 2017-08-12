@@ -24,6 +24,10 @@ public class TaskExecutor {
 			for (Task task : tasks) {
 				logger.warning("[Task-Scheduler] Starting task: " + task.getName());
 				task.run();
+				while (task.getStatus().equals(DriverTask.Status.RUNNING)) {
+					//do nothing
+				}
+				scheduler.remove(task);
 			}
 		} else {
 			logger.info("[Task-Scheduler] No tasks to run!");

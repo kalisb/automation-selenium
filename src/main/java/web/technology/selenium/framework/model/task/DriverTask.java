@@ -10,24 +10,14 @@ import java.util.Properties;
 import java.util.Set;
 import java.util.logging.Logger;
 
-public class DriverTask implements Task {
+public class DriverTask extends DefaultTask {
 
     private static Logger LOG = Logger.getLogger(DriverTask.class.getName());
 
-	private enum Status {
-		OK, ERROR, RUNNING
-	}
-
-	private Status status;
 	private String browser;
 	
 	public DriverTask(String browser) {
 		this.browser = browser;
-	}
-	
-	@Override
-	public String getStatus() {
-		return status.name();
 	}
 
 	@Override
@@ -43,6 +33,7 @@ public class DriverTask implements Task {
 
 	@Override
 	public void run() {
+        setStatus(Status.RUNNING);
     	Set<OperatingSystem> osTypeList =  OperatingSystem.getCurrentOperatingSystemAsAHashSet();
     	//Calculate system architecture
     	boolean thirtyTwoBitBinaries = false;
@@ -79,9 +70,9 @@ public class DriverTask implements Task {
          System.setProperty(browserMapping.getProperty(browser), driverDetails.extractedLocation);
          System.setProperty("browser", browser);
          LOG.warning("Set browser property to: " + browser);
-         this.status = Status.OK;
+         setStatus(Status.OK);
 		} catch (Exception e) {
-			this.status = Status.ERROR;
+            setStatus(Status.ERROR);
             LOG.severe(e.getMessage());
 		}
 

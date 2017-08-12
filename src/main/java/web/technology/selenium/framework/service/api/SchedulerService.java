@@ -1,12 +1,13 @@
 package web.technology.selenium.framework.service.api;
 
-import java.util.Collection;
-
 import web.technology.selenium.framework.model.task.Task;
+
+import java.util.Collection;
 
 public interface SchedulerService {
 	
 	void add(Task task);
+	void remove(Task task);
 	boolean hasTasks();
 	Collection<Task> getAllTasks();
 

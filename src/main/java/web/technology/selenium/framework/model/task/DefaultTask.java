@@ -1,9 +1,9 @@
 package web.technology.selenium.framework.model.task;
 
 public abstract class DefaultTask implements Task {
-	
-	private enum Status {
-		CORRECT, ERROR
+
+	enum Status {
+		OK, ERROR, RUNNING
 	}
 	
 	private Status status;
