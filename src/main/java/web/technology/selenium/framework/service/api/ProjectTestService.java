@@ -74,4 +74,5 @@ public interface ProjectTestService {
     public UFTFeature getFeature(int id);
     public List<UFTFeature> listFeatures(int projectId);
     void updateFeature(UFTFeature feature);
+    void deleteFeature(UFTFeature feature);
 }

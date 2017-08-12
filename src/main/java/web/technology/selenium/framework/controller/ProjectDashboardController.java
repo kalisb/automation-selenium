@@ -133,4 +133,13 @@ public class ProjectDashboardController {
         model.addObject("feature", testService.getFeature(featureId));
         return model;
     }
+
+    @RequestMapping(value = "projects/edit/{id}/features/{featureId}", method = RequestMethod.DELETE)
+    public ModelAndView deleteFeature(@PathVariable(value = "id") int id,
+                                    @PathVariable(value = "featureId") int featureId) {
+        ModelAndView model = new ModelAndView("projects/edit/" + id);
+        testService.deleteFeature(testService.getFeature(featureId));
+        model.addObject("project", projectService.findById(id));
+        return model;
+    }
 }

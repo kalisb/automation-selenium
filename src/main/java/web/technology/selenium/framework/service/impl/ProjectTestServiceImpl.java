@@ -36,6 +36,11 @@ public class ProjectTestServiceImpl implements ProjectTestService {
     }
 
     @Override
+    public void deleteFeature(UFTFeature feature) {
+        featureDao.delete(feature);
+    }
+
+    @Override
     public void saveFeature(UFTFeature feature) {
         String tempPath = System.getProperty("java.io.tmpdir") + "/features" + System.nanoTime() + "/";
         File featureFile = new File(tempPath + feature.getTitle().replace(" ", "_") + ".feature");

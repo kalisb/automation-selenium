@@ -40,8 +40,8 @@ public class FeatureDaoImpl implements FeatureDao {
     }
 
     @Override
-    public void delete(int id) {
-
+    public void delete(UFTFeature feature) {
+        getSession().delete(feature);
     }
 
     @Override

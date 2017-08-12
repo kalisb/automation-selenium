@@ -40,7 +40,7 @@ public class ProjectDaoImpl implements ProjectDao {
     }
 
     @Override
-    public void delete(int id) {
+    public void delete(Project project) {
 
     }
 
