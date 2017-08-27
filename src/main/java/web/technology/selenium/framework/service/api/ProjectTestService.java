@@ -6,6 +6,7 @@ import org.apache.commons.io.FileUtils;
 import org.codehaus.groovy.control.CompilationUnit;
 import web.technology.selenium.framework.DriverBase;
 import web.technology.selenium.framework.model.UFTFeature;
+import web.technology.selenium.framework.model.UFTReport;
 import web.technology.selenium.framework.tests.BasicSteps;
 import cucumber.runtime.model.CucumberFeature;
 
@@ -49,7 +50,6 @@ public interface ProjectTestService {
         try {
             FileUtils.touch(output);
             System.setOut(new PrintStream(new FileOutputStream(output), true));
-            //System.setErr(new PrintStream(new FileOutputStream(output), true));
         } catch (Exception e) {
 
         }
@@ -63,16 +63,14 @@ public interface ProjectTestService {
         }
         runner.finish();
         System.setOut(out);
-        try {
-        	return FileUtils.readFileToString(output, Charset.defaultCharset());
-        } finally {
-            FileUtils.forceDelete(new File("web"));
-            FileUtils.forceDeleteOnExit(new File(tempDir));
-		}
+
+        return FileUtils.readFileToString(output, Charset.defaultCharset());
+
     } 
     public void saveFeature(UFTFeature feature);
     public UFTFeature getFeature(int id);
     public List<UFTFeature> listFeatures(int projectId);
     void updateFeature(UFTFeature feature);
     void deleteFeature(UFTFeature feature);
+    public List<UFTReport> listReports(int id);
 }

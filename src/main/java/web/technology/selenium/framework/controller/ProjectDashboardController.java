@@ -44,7 +44,6 @@ public class ProjectDashboardController {
     public ModelAndView show() {
         ModelAndView model = new ModelAndView("projects");
         model.addObject("projects", projectService.listProjects());
-        model.addObject("tasks", scheduler.getAllTasks());
         return model;
     }
     
@@ -56,9 +55,7 @@ public class ProjectDashboardController {
 
     @RequestMapping(value = "configs", method = RequestMethod.GET)
     public ModelAndView configure() {
-        ModelAndView model = new ModelAndView("configs");
-        model.addObject("tasks", scheduler.getAllTasks());
-        return model;
+        return new ModelAndView("configs");
     }
     
     @Transactional
@@ -96,6 +93,14 @@ public class ProjectDashboardController {
         ModelAndView model = new ModelAndView("projects/edit");
         model.addObject("project", projectService.findById(id));
         model.addObject("features", testService.listFeatures(id));
+        return model;
+    }
+
+    @RequestMapping(value = "projects/edit/{id}/reports", method = RequestMethod.GET)
+    public ModelAndView testReports(@PathVariable(value = "id") int id) {
+        ModelAndView model = new ModelAndView("projects/edit");
+        model.addObject("project", projectService.findById(id));
+        model.addObject("reports", testService.listReports(id));
         return model;
     }
 

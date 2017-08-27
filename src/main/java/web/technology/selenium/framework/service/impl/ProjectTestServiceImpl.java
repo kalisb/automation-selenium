@@ -5,7 +5,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import web.technology.selenium.framework.dao.api.FeatureDao;
+import web.technology.selenium.framework.dao.api.ReportDao;
 import web.technology.selenium.framework.model.UFTFeature;
+import web.technology.selenium.framework.model.UFTReport;
 import web.technology.selenium.framework.model.UFTScenario;
 import web.technology.selenium.framework.model.UFTStep;
 import web.technology.selenium.framework.service.api.ProjectTestService;
@@ -25,6 +27,9 @@ public class ProjectTestServiceImpl implements ProjectTestService {
     @Autowired
     FeatureDao featureDao;
 
+    @Autowired
+    ReportDao reportDao;
+
     @Override
     public List<UFTFeature> listFeatures(int projectId) {
         return featureDao.listProjectFeatures(projectId);
@@ -38,6 +43,11 @@ public class ProjectTestServiceImpl implements ProjectTestService {
     @Override
     public void deleteFeature(UFTFeature feature) {
         featureDao.delete(feature);
+    }
+
+    @Override
+    public List<UFTReport> listReports(int id) {
+        return reportDao.listProjectReports(id);
     }
 
     @Override
