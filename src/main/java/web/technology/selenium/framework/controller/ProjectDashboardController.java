@@ -115,6 +115,8 @@ public class ProjectDashboardController {
     @RequestMapping(value = "projects/edit/{id}/features", method = RequestMethod.POST)
     public RedirectView saveProject(@PathVariable(value = "id") int id, @ModelAttribute(value = "feature") UFTFeature feature) {
         feature.setProjectId(id);
+		String name = feature.getTitle();
+		feature.setTitle(name + "_" + System.nanoTime());
         testService.saveFeature(feature);
         RedirectView model = new RedirectView("/projects/edit/" + id);
         model.addStaticAttribute("project", projectService.findById(id));
@@ -124,6 +126,8 @@ public class ProjectDashboardController {
     @Transactional
     @RequestMapping(value = "features/update", method = RequestMethod.POST)
     public String saveProject(@ModelAttribute(value = "feature") UFTFeature feature) {
+		String name = feature.getTitle();
+		feature.setTitle(name + "_" + System.nanoTime());
         feature.setDataImpl(feature.getDataImplStr().getBytes(Charset.defaultCharset()));
         feature.setData(feature.getDataStr().getBytes(Charset.defaultCharset()));
         testService.updateFeature(feature);
