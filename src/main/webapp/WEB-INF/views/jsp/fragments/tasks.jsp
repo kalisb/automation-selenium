@@ -12,9 +12,14 @@
     </div>
 </div>
 <script>
+	function getContextPath() {
+		var ctx = window.location.pathname,
+			path = '/' !== ctx ? ctx.substring(0, ctx.indexOf('/', 1) + 1) : ctx;
+		return path + (/\/$/.test(path) ? '' : '/');
+	}
     size = 0;
     setInterval(function(){
-        $.ajax({ url: "/tasks", success: function(data){
+        $.ajax({ url: getContextPath() + "/tasks", success: function(data){
             if (data.length < size) {
                 $("#tasks tr").remove();
                 size = 0;

@@ -12,7 +12,7 @@ import javax.persistence.*;
 public class UFTReport {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue
     private int id;
 
     @Column(name ="projectId")

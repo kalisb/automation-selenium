@@ -21,7 +21,6 @@ public class DriverBase extends AbstractTestNGCucumberTests {
 
 	public static WebDriver getDriver() {
 		driverFactory = new DriverFactory();
-		LOG.warning("Get driver!");
 		return driverFactory.getDriver();
 	}
 

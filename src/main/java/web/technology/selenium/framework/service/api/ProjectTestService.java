@@ -63,8 +63,12 @@ public interface ProjectTestService {
         }
         runner.finish();
         System.setOut(out);
-
-        return FileUtils.readFileToString(output, Charset.defaultCharset());
+		
+		try {
+			return FileUtils.readFileToString(output, Charset.defaultCharset());
+		} finally {
+			FileUtils.forceDelete(new File("web"));
+		}
 
     } 
     public void saveFeature(UFTFeature feature);

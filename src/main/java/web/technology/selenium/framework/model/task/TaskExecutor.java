@@ -18,7 +18,6 @@ public class TaskExecutor {
 	
 	@Scheduled(cron = "* * * * * *")
 	public void run() {
-		logger.info("[Task-Scheduler] Check task queue.");
 		if (scheduler.hasTasks()) {
 			Collection<Task> tasks = scheduler.getAllTasks();
 			for (Task task : tasks) {
@@ -29,8 +28,6 @@ public class TaskExecutor {
 				}
 				scheduler.remove(task);
 			}
-		} else {
-			logger.info("[Task-Scheduler] No tasks to run!");
 		}
 	}
 

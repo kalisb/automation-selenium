@@ -54,7 +54,7 @@ public class SpringRootConfig {
         properties.put("hibernate.dialect",enviornment.getRequiredProperty("hibernate.dialect"));
         properties.put("hibernate.show_sql",enviornment.getRequiredProperty("hibernate.show_sql"));
         properties.put("hibernate.format_sql",enviornment.getRequiredProperty("hibernate.format_sql"));
-        properties.put("hibernate.id.new_generator_mapping", false);
+        //properties.put("hibernate.id.new_generator_mapping", false);
         properties.put("hibernate.hbm2ddl.auto", "update");
         return properties;
 

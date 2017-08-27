@@ -29,8 +29,10 @@
 			</section>
 
 			<section class="content">
-			    <textarea rows="10" width="100%" id="result">
-                </textarea>
+				<div class="input-wrap">
+					<textarea rows="10" id="result">
+					</textarea>
+				</div>
 			    <form accept-charset="UTF-8" onsubmit="return false;" id="featureForm">
 
                     <div class="page-title edit-project-title">
@@ -48,6 +50,8 @@
                                 <span class="help">e.g. "Login"</span>
                                 <div class="input-wrap">
                                     <input name="title" type="text" id="title" value="${feature.title}">
+									<input style="display:none" name="id" type="text" id="id" value="${feature.id}">
+									<input style="display:none" name="projectId" type="text" id="projectId" value="${feature.projectId}">
                                 </div>
                             </div>
 

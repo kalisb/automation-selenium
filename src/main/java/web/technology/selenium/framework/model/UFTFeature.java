@@ -46,11 +46,6 @@ public class UFTFeature {
     @Transient
     private List<UFTScenario> scenarios;
 
-
-    public UFTFeature() {
-
-    }
-
     public int getId() {
         return id;
     }

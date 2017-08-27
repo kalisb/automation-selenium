@@ -163,6 +163,12 @@ function remove(){
 }
 $("button.clone").on("click", clone);
 
+function getContextPath() {
+	var ctx = window.location.pathname,
+		path = '/' !== ctx ? ctx.substring(0, ctx.indexOf('/', 1) + 1) : ctx;
+	return path + (/\/$/.test(path) ? '' : '/');
+}
+
 $("button.submit").on("click", function(e) {
 
     var url = window.location.pathname; // the script where you handle the form input.
@@ -172,7 +178,11 @@ $("button.submit").on("click", function(e) {
            data: $("#featureForm").serialize(), // serializes the form's elements.
            success: function(data)
            {
-               window.location = window.location.pathname.replace(/features/g, "")
+               window.location =  window.location.pathname.replace(/features/g, "")
+           },
+		   error: function(data)
+           {
+               window.location =  window.location.pathname.replace(/features/g, "")
            }
      });
 
