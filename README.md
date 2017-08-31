@@ -21,8 +21,14 @@ Selenium Web Driver - инструмент за писане на автомат
 
 ### 6. Кратко ръководство на потребителя
 
+# 1. Създаване на проект
+
 ![alt text](https://raw.githubusercontent.com/kalisb/automation-selenium/master/images/projects.png)
 
+# 2. Създаване на тестови сценарии
+
 ![alt text](https://raw.githubusercontent.com/kalisb/automation-selenium/master/images/features.png)
+
+# 3. Изпълнение на тестови сценарии
 
 ![alt text](https://raw.githubusercontent.com/kalisb/automation-selenium/master/images/results.png)
