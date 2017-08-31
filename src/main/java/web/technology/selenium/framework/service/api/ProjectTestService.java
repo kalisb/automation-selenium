@@ -28,6 +28,8 @@ public interface ProjectTestService {
     public  static String runTests(UFTFeature feature) {
 	    try {
 			String tempDir = System.getProperty("java.io.tmpdir") + "/features" + System.nanoTime() + "/";
+			Class<?> cachedClass = null;
+            String className = "";
 			try {
 				File testFile = new File(tempDir + feature.getTitle().replace(" ", "_") + ".groovy");
 				File featureFile = new File(tempDir + feature.getTitle().replace(" ", "_") + ".feature");
@@ -42,7 +44,10 @@ public interface ProjectTestService {
 				Method method = URLClassLoader.class.getDeclaredMethod("addURL", new Class[]{URL.class});
 				method.setAccessible(true);
 				method.invoke(BasicSteps.class.getClassLoader(), new Object[]{new File("./" + feature.getTitle().replace(" ", "_") + ".class").getParentFile().toURI().toURL()});
-				BasicSteps.class.getClassLoader().loadClass("web.technology.selenium.framework.tests." + feature.getTitle().replace(" ", "_"));
+				className = "web.technology.selenium.framework.tests." + feature.getTitle().replace(" ", "_");
+				cachedClass = Class.forName(className);
+                URL[] urls={ cachedClass.getProtectionDomain().getCodeSource().getLocation() };
+				URLClassLoader classLoader = new URLClassLoader(urls, BasicSteps.class.getClassLoader());
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
@@ -55,7 +60,7 @@ public interface ProjectTestService {
 
 			}
 			//DriverBase.instantiateDriverObject();
-			TestNGCucumberRunner runner = new TestNGCucumberRunner(BasicSteps.class);
+			TestNGCucumberRunner runner = new TestNGCucumberRunner(Class.forName(className));
 			List<String> featurePaths = new ArrayList<>();
 			featurePaths.add(new File(tempDir).getAbsolutePath());
 			List<CucumberFeature> cucumberFeatures = CucumberFeature.load(new FileResourceLoader(), featurePaths, new ArrayList<>());
@@ -69,7 +74,10 @@ public interface ProjectTestService {
 	    } catch (IOException e) {
 			return e.getMessage();
 			// log message
-		} finally {
+		} catch (ClassNotFoundException e) {
+            return e.getMessage();
+            // log message
+        } finally {
 			try {
 				FileUtils.forceDelete(new File("web"));
 			} catch (IOException e) {

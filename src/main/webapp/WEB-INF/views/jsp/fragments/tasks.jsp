@@ -1,15 +1,15 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <div id="buildHistory"
-    class="container-fluid pane-frame track-mouse expanded mouseover">
-    <div class="row">
-        <div class="col-xs-24 pane-header">Tasks History</div>
-    </div>
-    <div class="row pane-content">
-        <table class="pane stripped">
-            <tbody id="tasks">
-            </tbody>
-        </table>
-    </div>
+	class="container-fluid pane-frame track-mouse expanded mouseover">
+	<div class="row">
+		<div class="col-xs-24 pane-header">Tasks History</div>
+	</div>
+	<div class="row pane-content">
+		<table class="pane stripped">
+			<tbody id="tasks">
+			</tbody>
+		</table>
+	</div>
 </div>
 <script>
 	function getContextPath() {

@@ -22,15 +22,15 @@
 					<li><a href="<c:url value="/projects/" />"
 						class="projects current">Projects</a></li>
 					<li><br></li>
-                    <li><br></li>
-                    <li>
-                        <jsp:include page="../../jsp/fragments/tasks.jsp"></jsp:include>
-                    </li>
+					<li><br></li>
+					<li><jsp:include page="../../jsp/fragments/tasks.jsp"></jsp:include>
+					</li>
 				</ul>
 			</section>
 
 			<section class="content">
-				<form:form method="POST" accept-charset="UTF-8" commandName="project">
+				<form:form method="POST" accept-charset="UTF-8"
+					commandName="project">
 
 					<div class="page-title edit-project-title">
 						<div class="pull-right">
@@ -48,7 +48,7 @@
 									"Mona Lisa Portrait"</span>
 								<div class="input-wrap">
 									<form:input path="title" name="title" type="text" id="title" />
-									<form:errors path="title" cssClass="error"/>
+									<form:errors path="title" cssClass="error" />
 								</div>
 							</div>
 
@@ -56,8 +56,9 @@
 								<label for="url">URL</label> <span class="help">e.g.
 									http://www.example.com</span>
 								<div class="input-wrap">
-									<form:input path="url" placeholder="http://" name="url" type="text" id="url" />
-									<form:errors path="url" cssClass="error"/>
+									<form:input path="url" placeholder="http://" name="url"
+										type="text" id="url" />
+									<form:errors path="url" cssClass="error" />
 								</div>
 							</div>
 						</div>

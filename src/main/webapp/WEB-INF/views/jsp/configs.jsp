@@ -27,8 +27,7 @@
 						class="projects current">Configurations</a></li>
 					<li><br></li>
 					<li><br></li>
-					<li>
-                        <jsp:include page="../jsp/fragments/tasks.jsp"></jsp:include>
+					<li><jsp:include page="../jsp/fragments/tasks.jsp"></jsp:include>
 					</li>
 				</ul>
 			</section>
