@@ -18,3 +18,11 @@
 ### 4. Използвани технологии
 
 Selenium Web Driver - инструмент за писане на автоматизирани тестове за уеб страници. То имитира действията на истински потребител. Cucumber – софтуерен инструмент за тестване на софтуер. Изпълнява тестове написани в BDD стил.
+
+### 6. Кратко ръководство на потребителя
+
+![alt text](https://raw.githubusercontent.com/kalisb/automation-selenium/master/images/projects.png)
+
+![alt text](https://raw.githubusercontent.com/kalisb/automation-selenium/master/images/features.png)
+
+![alt text](https://raw.githubusercontent.com/kalisb/automation-selenium/master/images/results.png)
