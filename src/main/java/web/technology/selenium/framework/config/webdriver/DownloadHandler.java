@@ -41,7 +41,7 @@ public class DownloadHandler {
 	private void downloadAndExtractExecutableFiles(DriverContext driverContext, DriverDetails driverDetails) throws Exception {
 		String localZipFileAbsolutePath = this.downloadedZipFileDirectory + File.separator + FilenameUtils.getName(driverDetails.fileLocation.getFile());
 		File localZipFile = new File(localZipFileAbsolutePath);
-		boolean fileNeedsToBeDownloaded = true;
+		boolean fileNeedsToBeDownloaded = new File(this.rootStandaloneServerDirectory.getAbsolutePath() + File.separator + driverContext.buildExtractionPathFromDriverContext()).exists();
 
 		if (fileNeedsToBeDownloaded) {
 			localZipFile = downloadFile(driverDetails);
