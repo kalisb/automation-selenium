@@ -41,12 +41,12 @@
 		<browser>firefox</browser>
 		<threads>1</threads>
 		<remote>false</remote>
-		<seleniumGridURL />
-		<platform />
-		<browserVersion />
+		<seleniumGridURL/>
+		<platform/>
+		<browserVersion/>
 		<proxyEnabled>false</proxyEnabled>
-		<proxyHost />
-		<proxyPort />
+		<proxyHost/>
+		<proxyPort/>
 	</properties>
 
 	<build>
@@ -190,7 +190,7 @@
 										</goals>
 									</pluginExecutionFilter>
 									<action>
-										<ignore></ignore>
+										<ignore/>
 									</action>
 								</pluginExecution>
 								<pluginExecution>
@@ -210,7 +210,7 @@
 										</goals>
 									</pluginExecutionFilter>
 									<action>
-										<ignore></ignore>
+										<ignore/>
 									</action>
 								</pluginExecution>
 							</pluginExecutions>
@@ -309,7 +309,7 @@
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
-			<version>8.0.16</version>
+			<version>8.0.31</version>
 		</dependency>
 
 		<dependency>
