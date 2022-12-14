@@ -41,12 +41,12 @@
 		<browser>firefox</browser>
 		<threads>1</threads>
 		<remote>false</remote>
-		<seleniumGridURL />
-		<platform />
-		<browserVersion />
+		<seleniumGridURL/>
+		<platform/>
+		<browserVersion/>
 		<proxyEnabled>false</proxyEnabled>
-		<proxyHost />
-		<proxyPort />
+		<proxyHost/>
+		<proxyPort/>
 		<sonar.organization>kalisb</sonar.organization>
 		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
 	</properties>
@@ -192,7 +192,7 @@
 										</goals>
 									</pluginExecutionFilter>
 									<action>
-										<ignore></ignore>
+										<ignore/>
 									</action>
 								</pluginExecution>
 								<pluginExecution>
@@ -212,7 +212,7 @@
 										</goals>
 									</pluginExecutionFilter>
 									<action>
-										<ignore></ignore>
+										<ignore/>
 									</action>
 								</pluginExecution>
 							</pluginExecutions>
@@ -311,7 +311,7 @@
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
-			<version>8.0.16</version>
+			<version>8.0.31</version>
 		</dependency>
 
 		<dependency>
