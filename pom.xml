@@ -22,7 +22,7 @@
 		<phantomjsdriver.version>1.4.1</phantomjsdriver.version>
 		<testng.version>6.11</testng.version>
 		<cucumber.version>1.2.5</cucumber.version>
-		<spring.version>5.2.0.RELEASE</spring.version>
+		<spring.version>5.3.32</spring.version>
 		<jstl.version>1.2</jstl.version>
 		<servletapi.version>3.1.0</servletapi.version>
 		<hibernate.version>5.2.10.Final</hibernate.version>
@@ -41,12 +41,12 @@
 		<browser>firefox</browser>
 		<threads>1</threads>
 		<remote>false</remote>
-		<seleniumGridURL />
-		<platform />
-		<browserVersion />
+		<seleniumGridURL/>
+		<platform/>
+		<browserVersion/>
 		<proxyEnabled>false</proxyEnabled>
-		<proxyHost />
-		<proxyPort />
+		<proxyHost/>
+		<proxyPort/>
 		<sonar.organization>kalisb</sonar.organization>
 		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
 	</properties>
@@ -192,7 +192,7 @@
 										</goals>
 									</pluginExecutionFilter>
 									<action>
-										<ignore></ignore>
+										<ignore/>
 									</action>
 								</pluginExecution>
 								<pluginExecution>
@@ -212,7 +212,7 @@
 										</goals>
 									</pluginExecutionFilter>
 									<action>
-										<ignore></ignore>
+										<ignore/>
 									</action>
 								</pluginExecution>
 							</pluginExecutions>
